@@ -1,24 +1,31 @@
-package com.javascalaactors.actors;
+package com.java.actors;
 
-import akka.actor.Props;
 import akka.actor.UntypedActor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Supervisor extends UntypedActor {
+public class User extends UntypedActor {
 
     private final Logger log = LoggerFactory.getLogger(Supervisor.class);
-    public static final String PATH = "/supervisor/";
+    public static final String PATH = "/user/";
+    private int userId;
+
+    public User(int userId){
+
+        this.userId = userId;
+    }
 
     @Override
     public void preStart() throws Exception {
 
         super.preStart();
-        log.debug("starting supervisor actor");
+        log.info("User actor starting");
 
     }
     @Override
     public void onReceive(Object message) throws Exception {
+
+        log.info("message received =>" + message);
 
     }
 
